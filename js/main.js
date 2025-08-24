@@ -338,3 +338,35 @@ function initContactForm() {
         }, 2000);
     });
 }
+
+(function(){
+    emailjs.init("l_BWurwB4MMzpajLM"); 
+})();
+
+// Utilizăm formularul deja selectat în funcția initContactForm
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.querySelector('.contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            emailjs.send(
+                'service_5g4646g',  
+                'template_o66980f',  
+                {
+                    from_name: document.getElementById('name').value,
+                    from_email: document.getElementById('email').value,
+                    message: document.getElementById('message').value
+                }
+            )
+            .then(function(response) {
+                alert('Mesajul a fost trimis cu succes!');
+                contactForm.reset();
+            }, function(error) {
+                alert('A apărut o eroare. Încearcă din nou.');
+                console.log('FAILED...', error);
+            });
+        });
+    }
+});
