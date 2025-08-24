@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 </head>
 <body>
@@ -270,34 +270,7 @@
 
     <!-- Email -->
     
-    <script type="text/javascript">
-        (function(){
-            emailjs.init("l_BWurwB4MMzpajLM"); 
-        })();
 
-        const form = document.querySelector('.contact-form');
-
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            emailjs.send(
-                'service_5g4646g',  
-                'template_o66980f',  
-                {
-                    from_name: document.getElementById('name').value,
-                    from_email: document.getElementById('email').value,
-                    message: document.getElementById('message').value
-                }
-            )
-            .then(function(response) {
-                alert('Mesajul a fost trimis cu succes!');
-                form.reset();
-            }, function(error) {
-                alert('A apărut o eroare. Încearcă din nou.');
-                console.log('FAILED...', error);
-            });
-        });
-    </script>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
